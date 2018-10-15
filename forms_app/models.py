@@ -2,7 +2,7 @@ from django.db import models
 from datetime import datetime
 
 
-class FormModel(models.Model):
+class Recipe(models.Model):
     name = models.CharField(max_length=100)
     recipe = models.CharField(max_length=500)
     timeCook = models.IntegerField()

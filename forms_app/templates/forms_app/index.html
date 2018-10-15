@@ -1,17 +1,19 @@
-{# Testing here #}
-{% load static %}
-<link rel="stylesheet" href="{% static 'forms_app/bootstrap.css' %}">
-<div class="jumbotron">
-	<p>This is the forms app</p>
-</div>
-	{% if form_list %}
-		<ul>
-			{% for eachItem in form_list %}
-				<li>{{ eachItem.name }}</li>
+{% extends 'forms_app/base.html' %}
+{% block content %}
+
+<div class="content container">
+	<div class="row">
+		<div class="col-md-8">
+			{% for post in posts %}
+			<div class="post">
+				<div class="date">
+					<p>published: {{ post.published_date }}</p>
+				</div>
+				<h1><a href="{% url ''  %}">{{ Recipe.title }}</a></h1>
+				<p>{{ Recipe.recipe |linebreaksbr }}</p>
+			</div>
 			{% endfor %}
-		</ul>
-		{% else %}
-		<p>Nothing available.</p>
-	{% endif %}
-<script src="{% static 'forms_app/jquery-3.3.1.min.js' %}"></script>
-<script src="{% static 'forms_app/bootstrap.js' %}"></script>
+		</div>
+	</div>
+</div>
+{% endblock %}
