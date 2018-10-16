@@ -4,13 +4,13 @@
 <div class="content container">
 	<div class="row">
 		<div class="col-md-8">
-			{% for post in posts %}
+			{% for recipe in recipes %}
 			<div class="post">
 				<div class="date">
-					<p>published: {{ post.published_date }}</p>
+					<p>published: {{ recipe.published_date }}</p>
 				</div>
-				<h1><a href="{% url ''  %}">{{ Recipe.title }}</a></h1>
-				<p>{{ Recipe.recipe |linebreaksbr }}</p>
+				<h1><a href="{% url 'recipe_detail' pk=recipe.pk  %}">{{ recipe.title }}</a></h1>
+				<p>{{ recipe.recipe |linebreaksbr }}</p>
 			</div>
 			{% endfor %}
 		</div>

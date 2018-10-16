@@ -1,0 +1,8 @@
+{% extends 'forms_app/base.html' %}
+{% block content %}
+<div class="post">
+    <a class="btn btn-default" href="{% url 'recipe_edit' pk=recipe.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    <h1>{{ recipe.title }}</h1>
+    <p>{{ recipe.recipe|linebreaksbr }}</p>
+</div>
+{% endblock %}
