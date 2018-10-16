@@ -10,7 +10,7 @@ def recipe_list(request):
 
 def recipe_detail(request, pk):
     recipe = get_object_or_404(Recipe, pk=pk)
-    return render(request, 'forms_app/post_detail.html', {'recipe': recipe})
+    return render(request, 'forms_app/recipe_detail.html', {'recipe': recipe})
 
 def recipe_new(request):
     if request.method == "POST":
@@ -19,6 +19,7 @@ def recipe_new(request):
             recipe.save()
             return redirect('recipe_detail', pk=recipe.pk)
     else:
+        print("This is where I should be")
         recipe = Recipe
         return redirect(request, 'recipe_detail', {'recipe': recipe})
 
